@@ -2,6 +2,7 @@ import { Layout, Menu, Typography } from "antd";
 import { ItemType } from "antd/lib/menu/hooks/useItems";
 import React from "react";
 import { Outlet, useNavigate } from "react-router-dom";
+import { StyledLayout } from "./styles";
 
 export const MainLayout: React.FC = () => {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ export const MainLayout: React.FC = () => {
   ];
 
   return (
-    <Layout style={{ minHeight: "100vh" }}>
+    <StyledLayout>
       <Layout.Header>
         <Menu
           theme="dark"
@@ -43,6 +44,6 @@ export const MainLayout: React.FC = () => {
           Открыть в новой вкладке
         </Typography.Link>
       </Layout.Footer>
-    </Layout>
+    </StyledLayout>
   );
 };

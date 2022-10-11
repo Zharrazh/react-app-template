@@ -17,10 +17,13 @@ export const trainsSlice = createSlice({
   reducers: {
     createTrain: (state, action: PayloadAction<ITrainCreateRecord>) => {
       const id = uuidv4();
-      state.trainsList.push({
-        id,
-        ...action.payload,
-      });
+      state.trainsList = [
+        ...state.trainsList,
+        {
+          id,
+          ...action.payload,
+        },
+      ];
     },
     updateTrain: (state, action: PayloadAction<ITrainUpdateRecord>) => {
       const updatedTrainIndex = state.trainsList.findIndex(

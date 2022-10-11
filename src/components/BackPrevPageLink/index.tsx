@@ -1,7 +1,7 @@
-import { Typography } from "antd";
-import React from "react";
-import { Link } from "react-router-dom";
 import { LeftOutlined } from "@ant-design/icons";
+import { Space } from "antd";
+import React from "react";
+import { StyledBackPrevPageLink } from "./styles";
 
 export type BackPrevPageLinkProps = {
   className?: string;
@@ -14,11 +14,11 @@ export const BackPrevPageLink: React.FC<BackPrevPageLinkProps> = (props) => {
   const { className, style, children, to } = props;
 
   return (
-    <Link className={className} style={style} to={to}>
-      <Typography.Link>
+    <StyledBackPrevPageLink className={className} style={style} to={to}>
+      <Space align="center">
         <LeftOutlined />
         {children}
-      </Typography.Link>
-    </Link>
+      </Space>
+    </StyledBackPrevPageLink>
   );
 };
