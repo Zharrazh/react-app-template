@@ -1,11 +1,13 @@
 import { Layout, Menu, Typography } from "antd";
 import { ItemType } from "antd/lib/menu/hooks/useItems";
 import React from "react";
-import { Outlet, useNavigate } from "react-router-dom";
-import { StyledLayout } from "./styles";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { StyledContent, StyledLayout } from "./styles";
+import { getSelectedMenuKey } from "./utils";
 
 export const MainLayout: React.FC = () => {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const menuItems: ItemType[] = [
     {
@@ -20,20 +22,22 @@ export const MainLayout: React.FC = () => {
     },
   ];
 
+  const selectedMenuKey = getSelectedMenuKey(pathname);
+
   return (
     <StyledLayout>
       <Layout.Header>
         <Menu
           theme="dark"
           mode="horizontal"
-          selectedKeys={["trains"]}
+          selectedKeys={selectedMenuKey ? [selectedMenuKey] : []}
           items={menuItems}
         />
       </Layout.Header>
 
-      <Layout.Content>
+      <StyledContent>
         <Outlet />
-      </Layout.Content>
+      </StyledContent>
 
       <Layout.Footer>
         Github repo:{" "}

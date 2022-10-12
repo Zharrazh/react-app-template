@@ -1,6 +1,7 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { MainLayout } from "./layouts/MainLayout";
+import { MapPage } from "./pages/MapPage";
 import { TrainCreatePage } from "./pages/trains/TrainCreatePage";
 import { TrainEditPage } from "./pages/trains/TrainEditPage";
 import { TrainListPage } from "./pages/trains/TrainListPage";
@@ -16,6 +17,7 @@ export const App: React.FC = () => {
             <Route path="create" element={<TrainCreatePage />} />
             <Route path="edit/:id" element={<TrainEditPage />} />
           </Route>
+          <Route path="map" element={<MapPage />} />
           <Route path="*" element={"404 Not found"}></Route>
         </Route>
       </Routes>
