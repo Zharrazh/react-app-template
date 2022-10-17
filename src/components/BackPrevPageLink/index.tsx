@@ -14,6 +14,8 @@ export type BackPrevPageLinkProps = {
 export const BackPrevPageLink: React.FC<BackPrevPageLinkProps> = (props) => {
   const { className, style, children, to } = props;
 
+  const x = 1;
+
   return (
     <StyledBackPrevPageLink className={className} style={style} to={to}>
       <Space align="center">
