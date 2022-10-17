@@ -1,0 +1,6 @@
+{
+    "recommendations": [
+        "dbaeumer.vscode-eslint",
+        "dsbasko.create-component-helper"
+    ],
+}
