@@ -1,8 +1,8 @@
-import { Col, Form, Input, InputNumber, Row } from "antd";
-import React from "react";
-import { useFormContext, Controller } from "react-hook-form";
-import { InputCoords } from "../../../components/inputs/InputCoords";
-import { ITrainFieldsValues } from "./types";
+import { Col, Form, Input, InputNumber, Row } from 'antd';
+import React from 'react';
+import { useFormContext, Controller } from 'react-hook-form';
+
+import { ITrainFieldsValues } from './types';
 
 export const TrainFields: React.FC = () => {
   const { control } = useFormContext<ITrainFieldsValues>();
@@ -15,10 +15,9 @@ export const TrainFields: React.FC = () => {
         render={({ field, fieldState: { error } }) => {
           return (
             <Form.Item
-              label={"Наименование"}
+              label={'Наименование'}
               help={error?.message}
-              validateStatus={error && "error"}
-            >
+              validateStatus={error && 'error'}>
               <Input {...field} />
             </Form.Item>
           );
@@ -33,10 +32,9 @@ export const TrainFields: React.FC = () => {
             render={({ field, fieldState: { error } }) => {
               return (
                 <Form.Item
-                  label={"Серийный номер"}
+                  label={'Серийный номер'}
                   help={error?.message}
-                  validateStatus={error && "error"}
-                >
+                  validateStatus={error && 'error'}>
                   <Input {...field} />
                 </Form.Item>
               );
@@ -53,36 +51,16 @@ export const TrainFields: React.FC = () => {
             }) => {
               return (
                 <Form.Item
-                  label={"Кол-во секций"}
+                  label={'Кол-во секций'}
                   help={error?.message}
-                  validateStatus={error && "error"}
-                >
-                  <InputNumber style={{ width: "100%" }} {...restFieldProps} />
+                  validateStatus={error && 'error'}>
+                  <InputNumber style={{ width: '100%' }} {...restFieldProps} />
                 </Form.Item>
               );
             }}
           />
         </Col>
       </Row>
-
-      <Controller
-        control={control}
-        name="coords"
-        render={({
-          field: { ref: _, ...restFieldProps },
-          fieldState: { error },
-        }) => {
-          return (
-            <Form.Item
-              label={"Координаты"}
-              help={error?.message}
-              validateStatus={error && "error"}
-            >
-              <InputCoords {...restFieldProps} />
-            </Form.Item>
-          );
-        }}
-      />
     </Form>
   );
 };

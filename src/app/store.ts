@@ -1,5 +1,6 @@
-import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import trainsReducer from "../features/trains/trainsSlice";
+import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+
+import trainsReducer from '../features/trains/trainsSlice';
 
 export const store = configureStore({
   reducer: {

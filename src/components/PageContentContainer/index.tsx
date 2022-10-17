@@ -1,5 +1,6 @@
-import React from "react";
-import { StyledPageContentContainer } from "./styles";
+import React from 'react';
+
+import { StyledPageContentContainer } from './styles';
 
 export type PageContentContainerProps = {
   className?: string;
@@ -8,7 +9,7 @@ export type PageContentContainerProps = {
 };
 
 export const PageContentContainer: React.FC<PageContentContainerProps> = (
-  props
+  props,
 ) => {
   const { className, style, children } = props;
 

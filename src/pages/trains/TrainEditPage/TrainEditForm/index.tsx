@@ -1,13 +1,14 @@
-import { Button } from "antd";
-import React from "react";
-import { FormProvider } from "react-hook-form";
-import { TOnSubmitFormCb, useForm } from "../../../../app/useForm";
-import { TrainFields } from "../../../../features/trains/TrainFields";
+import { Button } from 'antd';
+import React from 'react';
+import { FormProvider } from 'react-hook-form';
+
+import { TOnSubmitFormCb, useForm } from '../../../../app/useForm';
+import { TrainFields } from '../../../../features/trains/TrainFields';
 import {
   ITrainFieldsValues,
   ITrainFieldsValuesValid,
-} from "../../../../features/trains/TrainFields/types";
-import { trainFieldsValidationSchema } from "../../../../features/trains/TrainFields/utils";
+} from '../../../../features/trains/TrainFields/types';
+import { trainFieldsValidationSchema } from '../../../../features/trains/TrainFields/utils';
 
 export type TrainEditFormProps = {
   initialValues: ITrainFieldsValues;
@@ -34,8 +35,7 @@ export const TrainEditForm: React.FC<TrainEditFormProps> = (props) => {
       <Button
         onClick={submit}
         loading={isSubmitLoading}
-        disabled={!form.formState.isDirty}
-      >
+        disabled={!form.formState.isDirty}>
         Сохранить изменения
       </Button>
     </div>

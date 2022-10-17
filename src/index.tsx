@@ -1,12 +1,14 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
-import { Provider } from "react-redux";
-import { store } from "./app/store";
-import { App } from "./App";
-import { BrowserRouter } from "react-router-dom";
-import "antd/dist/antd.min.css";
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
 
-const container = document.getElementById("root")!;
+import { BrowserRouter } from 'react-router-dom';
+
+import { store } from './app/store';
+import { App } from './App';
+import 'antd/dist/antd.min.css';
+
+const container = document.getElementById('root')!;
 const root = createRoot(container);
 
 root.render(
@@ -14,5 +16,5 @@ root.render(
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </Provider>
+  </Provider>,
 );

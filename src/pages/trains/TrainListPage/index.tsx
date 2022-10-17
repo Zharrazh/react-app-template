@@ -1,13 +1,16 @@
-import React from "react";
-import { Button, Card, Divider, notification, Typography } from "antd";
-import { Link, useNavigate } from "react-router-dom";
-import { PageContentContainer } from "../../../components/PageContentContainer";
-import { TrainListTable, TrainListTableProps } from "./TrainListTable";
-import { useAppDispatch, useAppSelector } from "../../../app/hooks";
+import React from 'react';
+import { Button, Card, Divider, notification, Typography } from 'antd';
+import { Link, useNavigate } from 'react-router-dom';
+
+import { PageContentContainer } from '../../../components/PageContentContainer';
+
+import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import {
   deleteTrain,
   selectTrainList,
-} from "../../../features/trains/trainsSlice";
+} from '../../../features/trains/trainsSlice';
+
+import { TrainListTable, TrainListTableProps } from './TrainListTable';
 
 export const TrainListPage: React.FC = () => {
   const navigate = useNavigate();
@@ -15,12 +18,12 @@ export const TrainListPage: React.FC = () => {
 
   const trainList = useAppSelector(selectTrainList);
 
-  const onEditTrainHandler: TrainListTableProps["onEditTrain"] = (record) => {
+  const onEditTrainHandler: TrainListTableProps['onEditTrain'] = (record) => {
     navigate(`edit/${record.id}`);
   };
 
-  const onDeleteTrainHandler: TrainListTableProps["onDeleteTrain"] = (
-    record
+  const onDeleteTrainHandler: TrainListTableProps['onDeleteTrain'] = (
+    record,
   ) => {
     dispatch(deleteTrain({ id: record.id }));
     notification.success({ message: `Поезд "${record.name}" успешно удален"` });

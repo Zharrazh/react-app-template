@@ -1,15 +1,17 @@
-import React from "react";
+import React from 'react';
 
-import { Card, notification, Typography } from "antd";
-import { useNavigate, useParams } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../../../app/hooks";
-import { BackPrevPageLink } from "../../../components/BackPrevPageLink";
-import { PageContentContainer } from "../../../components/PageContentContainer";
+import { Card, notification, Typography } from 'antd';
+import { useNavigate, useParams } from 'react-router-dom';
+
+import { useAppDispatch, useAppSelector } from '../../../app/hooks';
+import { BackPrevPageLink } from '../../../components/BackPrevPageLink';
+import { PageContentContainer } from '../../../components/PageContentContainer';
 import {
   getSelectTrainById,
   updateTrain,
-} from "../../../features/trains/trainsSlice";
-import { TrainEditForm, TrainEditFormProps } from "./TrainEditForm";
+} from '../../../features/trains/trainsSlice';
+
+import { TrainEditForm, TrainEditFormProps } from './TrainEditForm';
 
 export const TrainEditPage: React.FC = () => {
   const navigate = useNavigate();
@@ -19,13 +21,13 @@ export const TrainEditPage: React.FC = () => {
 
   const editedTrain = useAppSelector(getSelectTrainById(params.id!));
 
-  const onSubmitHandler: TrainEditFormProps["onSubmit"] = (values) => {
+  const onSubmitHandler: TrainEditFormProps['onSubmit'] = (values) => {
     if (editedTrain) {
       dispatch(updateTrain({ id: editedTrain.id, ...values }));
       notification.success({
         message: `Поезд "${editedTrain.name}" успешно изменен`,
       });
-      navigate("/trains");
+      navigate('/trains');
     }
   };
 

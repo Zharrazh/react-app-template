@@ -1,9 +1,10 @@
-import { Layout, Menu, Typography } from "antd";
-import { ItemType } from "antd/lib/menu/hooks/useItems";
-import React from "react";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import { StyledContent, StyledLayout } from "./styles";
-import { getSelectedMenuKey } from "./utils";
+import { Layout, Menu, Typography } from 'antd';
+import { ItemType } from 'antd/lib/menu/hooks/useItems';
+import React from 'react';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+
+import { StyledContent, StyledLayout } from './styles';
+import { getSelectedMenuKey } from './utils';
 
 export const MainLayout: React.FC = () => {
   const navigate = useNavigate();
@@ -11,14 +12,14 @@ export const MainLayout: React.FC = () => {
 
   const menuItems: ItemType[] = [
     {
-      key: "trains",
-      label: "Поезда",
-      onClick: () => navigate("/trains"),
+      key: 'trains',
+      label: 'Поезда',
+      onClick: () => navigate('/trains'),
     },
     {
-      key: "map",
-      label: "Карта",
-      onClick: () => navigate("/map"),
+      key: 'map',
+      label: 'Карта',
+      onClick: () => navigate('/map'),
     },
   ];
 
@@ -40,11 +41,10 @@ export const MainLayout: React.FC = () => {
       </StyledContent>
 
       <Layout.Footer>
-        Github repo:{" "}
+        Github repo:{' '}
         <Typography.Link
           href="https://github.com/Zharrazh/train-control-client"
-          target={"_blank"}
-        >
+          target={'_blank'}>
           Открыть в новой вкладке
         </Typography.Link>
       </Layout.Footer>

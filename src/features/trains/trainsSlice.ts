@@ -1,7 +1,9 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { v4 as uuidv4 } from "uuid";
-import { RootState } from "../../app/store";
-import { ITrainCreateRecord, ITrainRecord, ITrainUpdateRecord } from "./types";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { v4 as uuidv4 } from 'uuid';
+
+import { RootState } from '../../app/store';
+
+import { ITrainCreateRecord, ITrainRecord, ITrainUpdateRecord } from './types';
 
 export interface ITrainsSliceState {
   trainsList: ITrainRecord[];
@@ -12,7 +14,7 @@ const initialState: ITrainsSliceState = {
 };
 
 export const trainsSlice = createSlice({
-  name: "trains",
+  name: 'trains',
   initialState,
   reducers: {
     createTrain: (state, action: PayloadAction<ITrainCreateRecord>) => {
@@ -27,14 +29,14 @@ export const trainsSlice = createSlice({
     },
     updateTrain: (state, action: PayloadAction<ITrainUpdateRecord>) => {
       const updatedTrainIndex = state.trainsList.findIndex(
-        (train) => train.id === action.payload.id
+        (train) => train.id === action.payload.id,
       );
 
       state.trainsList[updatedTrainIndex] = action.payload;
     },
     deleteTrain: (state, action: PayloadAction<{ id: string }>) => {
       state.trainsList = state.trainsList.filter(
-        (train) => train.id !== action.payload.id
+        (train) => train.id !== action.payload.id,
       );
     },
   },

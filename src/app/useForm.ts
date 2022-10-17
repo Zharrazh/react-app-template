@@ -1,18 +1,18 @@
-import { yupResolver } from "@hookform/resolvers/yup";
-import React, { useCallback } from "react";
+import { yupResolver } from '@hookform/resolvers/yup';
+import React, { useCallback } from 'react';
 import {
   DeepPartial,
   FieldValues,
   useForm as useFormRHF,
-} from "react-hook-form";
-import { AnyObjectSchema } from "yup";
+} from 'react-hook-form';
+import { AnyObjectSchema } from 'yup';
 
 export type TOnSubmitFormAsyncCb<TSuccessFormValues> = (
-  values: TSuccessFormValues
+  values: TSuccessFormValues,
 ) => Promise<void>;
 
 export type TOnSubmitFormSyncCb<TSuccessFormValues> = (
-  values: TSuccessFormValues
+  values: TSuccessFormValues,
 ) => void;
 
 export type TOnSubmitFormCb<TSuccessFormValues> =
@@ -27,9 +27,9 @@ export interface IUseFormOptions<TFormValues, TSuccessFormValues> {
 
 export const useForm = <
   TFormValues extends FieldValues,
-  TSuccessFormValues = TFormValues
+  TSuccessFormValues = TFormValues,
 >(
-  options: IUseFormOptions<TFormValues, TSuccessFormValues>
+  options: IUseFormOptions<TFormValues, TSuccessFormValues>,
 ) => {
   const { onSubmit, validateFormSchema, defaultValues } = options;
 
@@ -37,7 +37,7 @@ export const useForm = <
 
   const form = useFormRHF<TFormValues>({
     resolver: validateFormSchema ? yupResolver(validateFormSchema) : undefined,
-    mode: "onChange",
+    mode: 'onChange',
     defaultValues: defaultValues,
   });
 

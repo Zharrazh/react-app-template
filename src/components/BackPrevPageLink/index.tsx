@@ -1,7 +1,8 @@
-import { LeftOutlined } from "@ant-design/icons";
-import { Space } from "antd";
-import React from "react";
-import { StyledBackPrevPageLink } from "./styles";
+import { LeftOutlined } from '@ant-design/icons';
+import { Space } from 'antd';
+import React from 'react';
+
+import { StyledBackPrevPageLink } from './styles';
 
 export type BackPrevPageLinkProps = {
   className?: string;

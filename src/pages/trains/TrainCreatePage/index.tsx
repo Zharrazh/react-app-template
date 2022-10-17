@@ -1,21 +1,25 @@
-import React from "react";
+import React from 'react';
 
-import { Card, notification, Typography } from "antd";
-import { BackPrevPageLink } from "../../../components/BackPrevPageLink";
-import { PageContentContainer } from "../../../components/PageContentContainer";
-import { TrainCreateForm, TrainCreateFormProps } from "./TrainCreateForm";
-import { useAppDispatch } from "../../../app/hooks";
-import { createTrain } from "../../../features/trains/trainsSlice";
-import { useNavigate } from "react-router-dom";
+import { Card, notification, Typography } from 'antd';
+
+import { useNavigate } from 'react-router-dom';
+
+import { BackPrevPageLink } from '../../../components/BackPrevPageLink';
+import { PageContentContainer } from '../../../components/PageContentContainer';
+
+import { useAppDispatch } from '../../../app/hooks';
+import { createTrain } from '../../../features/trains/trainsSlice';
+
+import { TrainCreateForm, TrainCreateFormProps } from './TrainCreateForm';
 
 export const TrainCreatePage: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  const onSubmitHandler: TrainCreateFormProps["onSubmit"] = (values) => {
+  const onSubmitHandler: TrainCreateFormProps['onSubmit'] = (values) => {
     dispatch(createTrain(values));
-    notification.success({ message: "Поезд успешно создан" });
-    navigate("/trains");
+    notification.success({ message: 'Поезд успешно создан' });
+    navigate('/trains');
   };
   return (
     <PageContentContainer>

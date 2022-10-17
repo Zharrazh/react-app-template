@@ -1,4 +1,4 @@
-import { ObjectShape } from "yup/lib/object";
+import { ObjectShape } from 'yup/lib/object';
 
 type ObjectShapeValues = ObjectShape extends Record<string, infer V>
   ? V
